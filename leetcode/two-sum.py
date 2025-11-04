@@ -1,18 +1,13 @@
-class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
-        seen = {}
-    
-        # Iterate through the list with index and value
-        for i, num in enumerate(nums):
-            complement = target - num
-            
-            # Check if the complement of the current number exists in the dictionary
-            if complement in seen:
-                return [seen[complement], i]  # Return the indices of the two numbers
-            
-            # If not found, store the current number with its index
-            seen[num] = i
-        
-        # Since the problem guarantees exactly one solution, we won't reach here
-        return []
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] == target - nums[i]) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        // If no valid pair is found, return an empty array instead of null
+        return new int[] {};
+    }
+}
